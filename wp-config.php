@@ -25,38 +25,49 @@
 // ** MySQL-Einstellungen ** //
 /**   Diese Zugangsdaten bekommst du von deinem Webhoster. **/
 
-/**
- * Ersetze datenbankname_hier_einfuegen
- * mit dem Namen der Datenbank, die du verwenden möchtest.
- */
-define('DB_NAME', 'd026e141');
 
-/**
- * Ersetze benutzername_hier_einfuegen
- * mit deinem MySQL-Datenbank-Benutzernamen.
- */
-define('DB_USER', 'd026e141');
 
-/**
- * Ersetze passwort_hier_einfuegen mit deinem MySQL-Passwort.
- */
-define('DB_PASSWORD', 'suHmHG5FDbwqFB38');
 
-/**
- * Ersetze localhost mit der MySQL-Serveradresse.
- */
-define('DB_HOST', 'localhost');
-
-/**
- * Der Datenbankzeichensatz, der beim Erstellen der
- * Datenbanktabellen verwendet werden soll
- */
-define('DB_CHARSET', 'utf8mb4');
-
-/**
- * Der Collate-Type sollte nicht geändert werden.
- */
-define('DB_COLLATE', '');
+switch ($_SERVER['HTTP_HOST']) {
+    case 'localhost':
+        switch (php_uname('n')) {
+            case 'BEN-PC':
+                define('DB_NAME', 'displayoutletberlin');
+                define('DB_USER', 'root');
+                define('DB_PASSWORD', '');
+                define('DB_HOST', 'localhost');
+                define('DB_CHARSET', 'utf8');
+                break;
+            case 'BEN-LAPTOP':
+                define('DB_NAME', 'displayoutletberlin');
+                define('DB_USER', 'root');
+                define('DB_PASSWORD', '');
+                define('DB_HOST', 'localhost');
+                define('DB_CHARSET', 'utf8');
+                break;
+            case 'RKNAPPE':
+                define('DB_NAME', 'displayoutletberlin');
+                define('DB_USER', 'root');
+                define('DB_PASSWORD', '1234');
+                define('DB_HOST', 'localhost');
+                define('DB_CHARSET', 'utf8');
+                break;
+            default:
+                exit('Set your local environment variables in wp-config.php for your PC called: '.php_uname('n'));
+                break;
+        }
+        break;
+    case 'www.display-outlet-berlin.de':
+        define('DB_NAME', 'd026e141');
+        define('DB_USER', 'd026e141');
+        define('DB_PASSWORD', 'suHmHG5FDbwqFB38');
+        define('DB_HOST', 'localhost');
+        define('DB_CHARSET', 'utf8mb4');
+        define('DB_COLLATE', '');
+        break;
+    default:
+        exit("Environment variables in wp-config.php have not been set for this (sub)domain. Uname: ".php_uname('n'). " HTTP Host: " . $_SERVER['HTTP_HOST']);
+}
 
 /**#@+
  * Sicherheitsschlüssel
