@@ -1,0 +1,32 @@
+{
+  "name": "hg-framework",
+  "version": "1.0.6",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^2.2.2",
+    "fs": "0.0.1-security",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-bump": "^2.7.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-line-ending-corrector": "^1.0.1",
+    "gulp-notify": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-prompt": "^0.2.0",
+    "gulp-replace": "^0.5.4",
+    "gulp-sass": "^3.1.0",
+    "gulp-sort": "^2.0.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "gulp-wp-pot": "^2.0.4",
+    "gulp-zip": "^4.0.0",
+    "run-sequence": "^1.2.2"
+  }
+}
